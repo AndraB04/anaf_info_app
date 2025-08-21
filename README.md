@@ -1,7 +1,7 @@
-# Sofnet Anaf Info
+# Anaf Info App
 
 ## Overview
-Sofnet Anaf Info is a full-stack application consisting of an Angular frontend and a Spring Boot backend. The backend provides business logic and data storage, while the frontend delivers a modern user interface. The project is containerized using Docker for easy deployment and scalability.
+Anaf Info is a full-stack application consisting of an Angular frontend and a Spring Boot backend. The backend provides business logic and data storage, while the frontend delivers a modern user interface. The project is containerized using Docker for easy deployment and scalability.
 
 ## Architecture
 - **Frontend:** Angular (served via Nginx)
@@ -18,8 +18,8 @@ Sofnet Anaf Info is a full-stack application consisting of an Angular frontend a
 
 ### 1. Clone the Repository
 ```sh
-git clone https://github.com/AndraB04/Sofnet_Anaf_Info.git
-cd Sofnet_Anaf_Info
+git clone https://github.com/AndraB04/anaf_info_app.git
+cd Softnet_Anaf_Info
 ```
 
 ### 2. Build and Start the Application
@@ -38,7 +38,7 @@ docker-compose down
 
 ## Project Structure
 ```
-sofnet-frontend-angular/   # Angular frontend source code
+softnet-frontend-angular/   # Angular frontend source code
 softnet_backend/          # Spring Boot backend source code and database
 Dockerfile.frontend       # Dockerfile for frontend
 Dockerfile.backend        # Dockerfile for backend
