@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification Error</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+            border-top: 5px solid #dc3545; /* Error Accent */
+            animation: fadeIn 0.5s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .icon {
+            font-size: 50px;
+            color: #dc3545;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #212529;
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+        p {
+            color: #6c757d;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        .error-details {
+            background-color: #fbeaea; /* Light red background */
+            border: 1px solid #f5c6cb;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 25px;
+            font-size: 14px;
+            color: #721c24;
+            text-align: left;
+        }
+        .retry-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .retry-btn:hover {
+            background-color: #0069d9;
+            transform: translateY(-1px);
+        }
+        .close-btn {
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .close-btn:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="icon">!</div>
+    <h1>Verification Failed</h1>
+    <p>An error occurred while trying to verify your email. Please check the details below and try again.</p>
+
+    <div class="error-details" id="errorDetails">
+        Loading error information...
+    </div>
+
+    <button class="retry-btn" onclick="retryAuth()">Try Again</button>
+    <button class="close-btn" onclick="window.close()">Close</button>
+</div>
+
+<script>
+    // --- SCRIPT FOR ERROR PAGE ---
+    const params = new URLSearchParams(window.location.search);
+    const errorCode = params.get('message');
+    const errorContainer = document.getElementById('errorDetails');
+
+    let errorMessage = '<strong>Unexpected Error:</strong><br>An unknown error occurred. Please try again or contact support.';
+
+    switch (errorCode) {
+        case 'email_mismatch':
+            errorMessage = `
+                    <strong>Email Mismatch:</strong><br>
+                    The email you authenticated with via Google does not match the one you entered in the form. Please try again with the correct Google account.
+                `;
+            break;
+        case 'auth_failed':
+            errorMessage = `
+                    <strong>Authentication Failed:</strong><br>
+                    Could not complete authentication with Google. Please ensure you have granted the necessary permissions.
+                `;
+            break;
+        case 'session_expired':
+            errorMessage = `
+                    <strong>Session Expired:</strong><br>
+                    The verification link has expired. Please start the process over from the main application.
+                `;
+            break;
+    }
+    errorContainer.innerHTML = errorMessage;
+
+    function retryAuth() {
+        window.history.back();
+    }
+
+    if (window.opener) {
+        window.opener.postMessage({ type: 'GOOGLE_AUTH_ERROR', error: errorCode || 'unknown' }, '*');
+    }
+</script>
+</body>
+</html>

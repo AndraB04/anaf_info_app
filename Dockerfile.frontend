@@ -1,0 +1,13 @@
+# Dockerfile for Angular frontend
+FROM node:20-alpine as build
+WORKDIR /app
+COPY sofnet-frontend-angular/package*.json ./
+RUN npm install --legacy-peer-deps
+COPY sofnet-frontend-angular/ ./
+RUN npm run build --prefix .
+RUN ls -l /app/dist/sofnet-frontend-angular
+
+FROM nginx:alpine
+COPY --from=build /app/dist/sofnet-frontend-angular/browser /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

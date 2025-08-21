@@ -1,0 +1,38 @@
+<div *ngIf="data">
+
+  <div class="card shadow-sm mb-4">
+    <div class="card-header">
+      <h3>General Data</h3>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">{{ data.companyName }}</h4>
+      <p class="card-subtitle mb-3 text-muted">Details for company with CUI: {{ data.cui }}</p>
+
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <strong>Trade Register No:</strong>
+          <span class="badge bg-secondary p-2">{{ data.tradeRegisterNo }}</span>
+        </li>
+        <li class="list-group-item"><strong>Fiscal Address:</strong> {{ data.fiscalAddress }}</li>
+        <li class="list-group-item"><strong>Postal Code:</strong> {{ data.postalCode }}</li>
+        <li class="list-group-item"><strong>Phone:</strong> {{ data.phone || 'N/A' }}</li>
+        <li class="list-group-item"><strong>Fax:</strong> {{ data.fax || 'N/A' }}</li>
+        <li class="list-group-item"><strong>Registration Date:</strong> {{ data.registrationDate | date:'dd MMMM yyyy' }}</li>
+        <li class="list-group-item">
+          <strong>CAEN Code:</strong> {{ data.caenCode }} - {{ data.caenDescription }}
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <strong>VAT Payer:</strong>
+          <span *ngIf="data.isVatPayer" class="badge bg-success">YES</span>
+          <span *ngIf="!data.isVatPayer" class="badge bg-danger">NO</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <strong>Company Status:</strong>
+          <span *ngIf="!data.isInactive" class="badge bg-success">ACTIVE</span>
+          <span *ngIf="data.isInactive" class="badge bg-danger">INACTIVE</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>

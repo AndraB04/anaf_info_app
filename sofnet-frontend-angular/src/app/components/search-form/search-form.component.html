@@ -1,0 +1,38 @@
+<form (ngSubmit)="handleSubmit()" class="card p-3 shadow-sm">
+  <div class="row g-3">
+    <div class="col-md-6">
+      <label for="cui" class="form-label">CUI Company</label>
+      <input
+        id="cui"
+        type="text"
+        class="form-control"
+        placeholder="Insert CUI ... "
+        [(ngModel)]="cui"
+        name="cui"
+        required
+      />
+    </div>
+
+    <div class="col-md-4">
+      <label for="years" class="form-label">Number of years</label>
+      <select
+        id="years"
+        class="form-select"
+        [(ngModel)]="years"
+        name="years"
+      >
+        <option value="1">1 year</option>
+        <option value="2">2 years</option>
+        <option value="3">3 years</option>
+        <option value="4">4 years</option>
+        <option value="5">5 years</option>
+      </select>
+    </div>
+
+    <div class="col-md-2 d-flex align-items-end">
+      <button type="submit" class="btn btn-primary w-100" [disabled]="!cui || cui.trim() === ''">
+        Search
+      </button>
+    </div>
+  </div>
+</form>

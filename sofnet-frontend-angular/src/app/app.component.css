@@ -1,0 +1,90 @@
+:host ::ng-deep .pdf-render-mode {
+  width: 100% !important;
+  max-width: none !important;
+  padding: 15px !important;
+  margin: 0 !important;
+  font-size: 10pt !important;
+  line-height: 1.3 !important;
+  box-sizing: border-box !important;
+}
+
+:host ::ng-deep .pdf-render-mode app-company-info {
+  page-break-inside: avoid !important;
+  width: 100% !important;
+  margin-bottom: 20px !important;
+}
+
+:host ::ng-deep .pdf-render-mode .card {
+  border: 1px solid #dee2e6 !important;
+  box-shadow: none !important;
+  page-break-inside: avoid !important;
+  margin-bottom: 15px !important;
+}
+
+:host ::ng-deep .pdf-render-mode .card-header {
+  background-color: #f8f9fa !important;
+  padding: 12px 15px !important;
+  font-weight: bold !important;
+}
+
+:host ::ng-deep .pdf-render-mode .card-body {
+  padding: 15px !important;
+}
+
+:host ::ng-deep .pdf-render-mode app-financial-table .table-responsive {
+  overflow: visible !important;
+}
+
+:host ::ng-deep .pdf-render-mode app-financial-table .table {
+  table-layout: auto !important;
+  width: 100% !important;
+  font-size: 8pt !important;
+  border-collapse: collapse !important;
+  page-break-inside: auto !important;
+}
+
+:host ::ng-deep .pdf-render-mode app-financial-table .table th,
+:host ::ng-deep .pdf-render-mode app-financial-table .table td {
+  word-wrap: break-word !important;
+  word-break: normal !important;
+  padding: 4px 6px !important;
+  border: 1px solid #dee2e6 !important;
+  vertical-align: top !important;
+  font-size: 7pt !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  min-width: 60px !important;
+  max-width: none !important;
+}
+
+:host ::ng-deep .pdf-render-mode app-financial-table .table th {
+  background-color: #f8f9fa !important;
+  font-weight: bold !important;
+  page-break-after: avoid !important;
+}
+
+:host ::ng-deep .pdf-render-mode app-financial-table .table tr {
+  page-break-inside: avoid !important;
+}
+
+:host ::ng-deep .pdf-render-mode app-financial-table .table thead {
+  page-break-after: avoid !important;
+  display: table-header-group !important;
+}
+
+:host ::ng-deep .pdf-render-mode app-financial-table .table tbody {
+  display: table-row-group !important;
+}
+
+:host ::ng-deep .pdf-render-mode .list-group-item {
+  font-size: 10pt !important;
+  padding: 8px 12px !important;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+}
+
+:host ::ng-deep .pdf-render-mode .badge {
+  font-size: 8pt !important;
+  padding: 4px 6px !important;
+}

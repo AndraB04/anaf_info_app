@@ -1,0 +1,12 @@
+<div *ngIf="records && records.length > 0" class="card shadow-sm">
+  <div class="card-header">
+    <h3>Financial Evolution</h3>
+  </div>
+  <div class="card-body">
+    <canvas baseChart
+            [data]="barChartData"
+            [options]="barChartOptions"
+            [type]="barChartType">
+    </canvas>
+  </div>
+</div>

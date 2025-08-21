@@ -1,0 +1,27 @@
+<div *ngIf="searchHistory && searchHistory.length > 0" class="card mt-3">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <h5 class="mb-0">Search History</h5>
+    <button class="btn btn-outline-danger btn-sm" (click)="onClearHistory()">
+      Clear All
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="d-flex flex-wrap gap-2">
+      <div *ngFor="let cui of searchHistory" class="d-flex align-items-center">
+        <button
+          class="btn btn-sm me-1"
+          [class]="cui === selectedCui ? 'btn-success' : 'btn-outline-primary'"
+          (click)="onSelectCui(cui)"
+          [title]="'Search for CUI: ' + cui">
+          {{ cui }}
+        </button>
+        <button
+          class="btn btn-outline-danger btn-sm"
+          (click)="onRemoveItem(cui)"
+          title="Remove from history">
+          ×
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
