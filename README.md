@@ -92,3 +92,5 @@ docker-compose.yml        # Multi-container orchestration
 ## Customization
 - To change backend or frontend ports, edit `docker-compose.yml`.
 - For backend configuration, modify `application.properties` in `softnet_backend/src/main/resources`.
+
+**Important:** You must add your email password and API tokens (such as for Postmark or OAuth) to the `application.properties` file for the backend to function correctly. Ensure these credentials are kept secure and never committed to version control.
